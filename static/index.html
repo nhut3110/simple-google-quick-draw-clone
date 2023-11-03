@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Quick, Draw! Webapp</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+    crossorigin="anonymous" />
+
+  <link rel="stylesheet" href="./style.css" />
+</head>
+
+<body>
+  <div class="container p-2">
+    <div id="welcomePage" class="d-flex justify-content-center align-items-center vh-100">
+      <div class="text-center">
+        <h1>Welcome!</h1>
+        <button id="startButton" class="btn btn-primary">Start</button>
+      </div>
+    </div>
+
+    <div id="drawingPage" class="d-none">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <span id="timer" class="mr-auto">N seconds left</span>
+        <span id="scoreCounter" class="mr-2">Score: 0</span>
+        <span class="navbar-brand mx-auto font-weight-bold" id="randomLabel">Label Placeholder</span>
+        <button class="btn btn-light" id="clearButton" type="button">Clear</button>
+      </nav>
+      
+      <div class="content py-3">
+        <div class="row justify-content-center">
+          <div class="col-24 col-md-auto d-flex flex-column align-items-center">
+            <main></main>
+            <div id="top3"></div>
+            <button class="mt-2" id="reloadButton" style="display: none;">Reload</button> <!-- Thêm nút này -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="resultsPage" class="d-none text-center">
+      <h1>Results</h1>
+      <div id="drawingsGrid" class="d-flex flex-wrap justify-content-center"></div>
+      <button id="restartButton" class="btn btn-primary mt-3">Restart</button>
+    </div>
+    
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-tflite@0.0.1-alpha.8/dist/tf-tflite.min.js"></script>
+
+  <script src="./libs/p5.min.js"></script>
+  <script src="./libs/chart.min.js"></script>
+
+  <script src="./scripts/labels.js"></script>
+  <script src="./scripts/sketch.js"></script>
+</body>
+
+</html>
