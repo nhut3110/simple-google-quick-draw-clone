@@ -21,7 +21,7 @@ let strokePixels = [[], []];
 let imageStrokes = [];
 
 let intervalId;
-let timerCount = 10;
+let timerCount = 20;
 
 const startTimer = (seconds) => {
   const timerDiv = document.getElementById("timer");
@@ -40,7 +40,6 @@ const startTimer = (seconds) => {
 };
 
 const resetApplication = () => {
-  console.log("resetApplication called");
   if (currentRound > maxRounds) {
     endGame();
     return;
@@ -67,7 +66,6 @@ const resetApplication = () => {
 };
 
 const endGame = () => {
-  console.log("endGame called");
   document.getElementById("drawingPage").classList.add("d-none");
   document.getElementById("resultsPage").classList.remove("d-none");
 
@@ -142,8 +140,6 @@ const blockDrawingAndPrediction = (isCorrect = false) => {
   });
 
   currentRound++;
-
-  console.log(roundResults);
 };
 
 const setRandomLabel = () => {
@@ -198,8 +194,6 @@ function mouseReleased() {
 }
 
 const loadModel = async () => {
-  console.log("Model loading...");
-
   model = await tflite.loadTFLiteModel("./models/model.tflite");
   model.predict(tf.zeros([1, 28, 28, 1])); // warmup
 
